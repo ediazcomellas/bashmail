@@ -9,7 +9,9 @@ I've tried to make it as portable as possible, with minimal requirements.
 For simplest use cases (only sending email, with no SSL nor AUTH), only
 bash, grep and cut are needed. 
 
-##Customization
+Customization
+-------------
+
 Edit variables at the top of the script and change the email at the bottom. 
 All variables are explained inline. 
 
