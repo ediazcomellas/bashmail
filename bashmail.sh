@@ -93,8 +93,9 @@ fi
 #Make sure we have an SMTPTIMEOUT value
 DSMTPTIMEOUT=${SMTPTIMEOUT:-4}
 
-# Check that we have cut. Should be in any sensible UNIX-like system anyway
+# Check that we have cut and grep. Should be in any sensible UNIX-like system anyway
 hash cut 2>/dev/null || { echo >&2 "ERROR: cut command is required but not available. Aborting."; exit 1; }
+hash grep 2>/dev/null || { echo >&2 "ERROR: grep command is required but not available. Aborting."; exit 1; }
 
 # Check if we have base64 (needed for auth)
 if [ $USEAUTH == "plain" -o $USEAUTH == "login" ]
