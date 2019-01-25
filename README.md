@@ -12,7 +12,7 @@ bash, grep and cut are needed.
 Customization
 -------------
 
-Edit variables at the top of the script and change the email at the bottom. 
-All variables are explained inline. 
+Edit variables at the top of the script or in the sepparated .conf file,
+and change the email at the bottom.  All variables are explained inline. 
 
 I hope you find it useful. 
