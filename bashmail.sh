@@ -54,9 +54,9 @@ SYSCONFOVERRIDE=0
 # If there is a system configuration file and we can read it, then source it
 if [ ${SYSCONFOVERRIDE:=0} -eq 0 ]
 then
-  echo "no nos saltamos la config del sistema"
   if [ -r /etc/bashmail.conf ]
   then
+    echo "Reading system variables from /etc/bashmail.conf"
     . /etc/bashmail.conf
   fi
 fi
