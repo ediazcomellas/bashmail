@@ -83,13 +83,17 @@ then
             ;;
         2)
             SMTPPORT=587
-            OPENSSLOPTIONS="-starttls smtp $OPENSSLOPTIONS "
             ;;
         *)
             echo >&2 "Warning: USESSL has unrecognized value. Defaulting to port 25 and no encryption"
             SMTPPORT=25
             ;;
     esac
+fi
+
+if [ $DUSESSL -eq 2 ]
+then
+    OPENSSLOPTIONS=" -starttls smtp $OPENSSLOPTIONS "
 fi
 
 if [ $SMTPPORT -eq 25 ]
