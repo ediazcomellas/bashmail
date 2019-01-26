@@ -303,8 +303,36 @@ elif [ ${auth} == "plain" ]
 #MYEMAILMESSAGEHERE
 #The sintax is: bashmail from to cc subject body
 
-bashmail "fromaddress@mydomain.com" "toaddress@hisdomain.com" "" "Mail de prueba: `date`" "En un lugar de la mancha
-de cuyo nombre no quiero acordarme
-no ha mucho tiempo ...."
+#You can substitute this variables, set them outside of the script or 
+#write the command directly below. Comment out the option you don't want
+
+## OPTION1
+## If you substitute this variables, please leave the "-" before the default value
+FROMADDRESS=${FROMADDRESS:-fromaddress@mydomain.com}
+TOADDRESS=${TOADDRESS:-toaddress@receiversdomain.com}
+## BEWARE the CC. It you don't want to set a default, just comment out the next line
+CCADDRESS=${CCADDRESS:-ccaddress@ccreceiversdomain.com}
+SUBJECT=${SUBJECT:-Test mail at `date`}
+if [ -z $BODY ]
+then
+read -r -d '' BODY << BODYDELIMITER
+In a village of La Mancha, the name of which I have no desire to call 
+to mind, there lived not long since one of those gentlemen that keep 
+a lance in the lance-rack, an old buckler, a lean hack, and a greyhound 
+for coursing.
+
+An olla of rather more beef than mutton, a salad on most nights, scraps 
+on Saturdays, lentils on Fridays, and a pigeon or so extra on Sundays, 
+made away with three-quarters of his income.
+BODYDELIMITER
+fi
+
+bashmail "${ROMADDRESS}" "${TOADDRESS}" "${CCADDRESS}" "${SUBJECT}" "${BODY}"
+
+## OPTION 2
+## If you wish, just write the email below as shown 
+#bashmail "fromaddress@mydomain.com" "toaddress@receiversdomain.com" "ccaddress@ccreceiversdomain.com" "test mail at: `date`" "In a village of La Macha
+#the name of which I have no desire to call to mind
+#there lived not long since one of those gentlemen..."
 
 
