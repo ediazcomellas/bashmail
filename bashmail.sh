@@ -64,7 +64,6 @@ elif [ -r /etc/bashmail.conf ]
         . /etc/bashmail.conf
     fi
 fi
-exit 0
 
 #Deduce hostname, if not previously set
 DHELOHOSTNAME=${HELOHOSTNAME:-$(hostname)}
